@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %} newblog {% endblock title %} 
+{% block content %}
+<div class="pt-3">
+<div class="pt-3 col-lg-5 shadow mx-auto p-0 pt-4">
+    <form action="{% url 'editblog' post.slug %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="p-3">
+          <div class="p-3">
+        <label for="imageq">Image</label>
+        <input type="file" class="form-control" name="featured_image">
+    </div>
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="name" aria-describedby="name" name="title" value="{{post.title}}">
+  </div>
+  <div class="p-3">
+    <label for="content">Content</label>
+    <textarea type="text" class="form-control" id="email" aria-describedby="emailHelp" name="content">{{post.content}}</textarea>
+  </div>
+  <div class="p-4 d-flex justify-content-center">
+      <button type="submit" class="btn btn-primary">SUBMIT</button>
+  </div>
+</form>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %} Contact {% endblock title %}
+{% block contactactive %} active {% endblock contactactive %} 
+{% block content %}
+{% for message in messages %}
+        <div
+          class="alert alert-{{message.tags}} alert-dismissible fade show"
+          role="alert"
+          id="message-container"
+        >
+          <strong>{{message}}</strong>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+        {% endfor %}
+      </div>
+<div class="pt-3">
+<div class="pt-3 col-lg-5 shadow mx-auto p-0 pt-4">
+    <form action="{% url 'contact' %}" method="post">
+        {% csrf_token %}
+        <div class="p-3">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" aria-describedby="name" name="name">
+  </div>
+  <div class="p-3">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
+  </div>
+   <div class="p-3">
+    <label for="number">Phone Number</label>
+    <input type="phone" class="form-control" id="number" name="number">
+  </div>
+  <div class="p-3">
+    <label for="issue">Describe Issue</label>
+    <textarea class="form-control" id="exampleInputPassword1" cols="30" name="issue"></textarea>
+  </div>
+  <div class="p-4 d-flex justify-content-center">
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+/* Container for horizontal cards */
+.cards-container {
+    display: flex;
+    flex-direction: row;      /* horizontal layout */
+    flex-wrap: wrap;          /* wrap to next line if screen is small */
+    justify-content: center;  /* center cards horizontally */
+    gap: 20px;                /* space between cards */
+    padding: 20px;            /* padding around cards */
+}
+
+/* Individual card styling */
+.cards-container .card {
+    width: 18rem;             /* fixed card width */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* subtle shadow */
+    border-radius: 10px;      /* rounded corners */
+    overflow: hidden;         /* clip image inside card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect on card */
+.cards-container .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Card image styling */
+.cards-container .card img {
+    width: 100%;             /* full width of card */
+    height: 180px;           /* fixed height for all cards */
+    object-fit: cover;       /* maintain aspect ratio and cover area */
+}
+
+/* Card text alignment */
+.cards-container .card-body {
+    text-align: center;
+}
+#message-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1050;
+  min-width: 250px;
+}
